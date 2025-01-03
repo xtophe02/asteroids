@@ -30,6 +30,7 @@ def main():
     
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     AsteroidField()
+   
 
     while True:
         dt = clock.tick(60) / 1000
@@ -41,9 +42,12 @@ def main():
         for sprite in updatable:
             sprite.update(dt)
         for asteroid in asteroids:
-            if asteroid.detect_collisions(player):
+            if asteroid.collision(player):
                 print("Game Over!")
                 sys.exit(0)
+            for shot in shots:
+                if asteroid.collision(shot):
+                    asteroid.kill()
         screen.fill("black")
         for sprite in drawable:  # Each sprite is a Player instance
             sprite.draw(screen)  # Call the draw method on the sprite
