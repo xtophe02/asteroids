@@ -2,6 +2,7 @@ from circleshape import CircleShape
 import pygame
 from constants import ASTEROID_MIN_RADIUS
 import random
+from explosion import Explosion
 
 class Asteroid(CircleShape):
   containers = None
@@ -16,10 +17,13 @@ class Asteroid(CircleShape):
      self.position += (self.velocity*dt)
   
   def split(self):
-     self.kill()
-     if self.radius <= ASTEROID_MIN_RADIUS:
+    # Create explosion effect
+    Explosion(self.position.x, self.position.y, self.radius)
+    
+    self.kill()
+    if self.radius <= ASTEROID_MIN_RADIUS:
         return
-     else:
+    else:
         angle = random.uniform(20,50)
         A1 = Asteroid(self.position.x,self.position.y,(self.radius - ASTEROID_MIN_RADIUS))
         A2 = Asteroid(self.position.x,self.position.y,(self.radius - ASTEROID_MIN_RADIUS))

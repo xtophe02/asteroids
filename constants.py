@@ -11,5 +11,9 @@ PLAYER_TURN_SPEED = 300
 PLAYER_SPEED = 200
 PLAYER_SHOOT_SPEED = 500
 PLAYER_SHOOT_COOLDOWN = 0.3
+PLAYER_LIVES = 3
+RESPAWN_INVULNERABILITY = 2.0  # seconds of invulnerability after respawning
 
 SHOT_RADIUS = 5
+
+EXPLOSION_DURATION = 0.5  # seconds - how long explosion effect lasts
