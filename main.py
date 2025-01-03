@@ -47,7 +47,7 @@ def main():
                 sys.exit(0)
             for shot in shots:
                 if asteroid.collision(shot):
-                    asteroid.kill()
+                    asteroid.split()
         screen.fill("black")
         for sprite in drawable:  # Each sprite is a Player instance
             sprite.draw(screen)  # Call the draw method on the sprite
